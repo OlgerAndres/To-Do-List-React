@@ -22,17 +22,6 @@ export function Home() {
 								onChange={e => {
 									setTask(e.target.value);
 								}}
-								onKeyPress={e => {
-									if (e.key === "Enter") {
-										if (task != "") {
-											setList(list.concat(task));
-											setTask("");
-											console.log({ list });
-										} else {
-											alert("Ingrese una actividad");
-										}
-									}
-								}}
 							/>
 							{!list
 								? "loading..."
@@ -57,6 +46,19 @@ export function Home() {
 					</div>
 				</div>
 			</div>
+			<button
+				type="button"
+				className="btn btn-primary"
+				onClick={() => {
+					if (task != "") {
+						setList(list.concat(task));
+						setTask("");
+					} else {
+						alert("Ingrese una actividad");
+					}
+				}}>
+				Añadir Tarea
+			</button>
 		</div>
 	);
 }
